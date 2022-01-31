@@ -1,177 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gyutae's Portfolio</title>
-    <meta name="description" content="Portfolio for Junior Front-end Developer Gyutae">
-    <meta name=author" content="Gyutae">
-     <!--Favicon-->
-    <link rel="icon" type="image/png" href="imgs/favicon.png">
-    <!--font Awesome-->
-    <script src="https://kit.fontawesome.com/5105174cdd.js" crossorigin="anonymous"></script>
-    <!--구글폰트 추가-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link 
-        href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" 
-        rel="stylesheet"
+    <meta
+      name="description"
+      content="Portfolio for Junior Front-end Developer Gyutae"
     />
-   <link rel="stylesheet" href="style.css">
-   <script defer src="main.js" ></script>
-</head>
-<body>
+    <meta name=author" content="Gyutae">
+    <!--Favicon-->
+    <link rel="icon" type="image/png" href="imgs/favicon.png" />
+    <!--font Awesome-->
+    <script
+      src="https://kit.fontawesome.com/5105174cdd.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--구글폰트 추가-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="main.js"></script>
+  </head>
+  <body>
     <!--Navbar-->
     <nav id="navbar">
-        <div class="navbar__logo">
-            <i class="fas fa-blog"></i>
-            <a href="#">Gyutae</a>
-        </div>
-        <div class="navbar__menu">
-            <ul class="navbar__menu">
-                <li class="navbar__menu__item">Home</li>
-                <li class="navbar__menu__item">About</li>
-                <li class="navbar__menu__item">Skills</li>
-                <li class="navbar__menu__item">My work</li>
-                <li class="navbar__menu__item">Testimonials</li>
-                <li class="navbar__menu__item">Contact</li>
-            </ul>
-        </div>
+      <div class="navbar__logo">
+        <i class="fas fa-blog"></i>
+        <a href="#">Gyutae</a>
+      </div>
+      <div class="navbar__menu">
+        <ul class="navbar__menu">
+          <li class="navbar__menu__item">Home</li>
+          <li class="navbar__menu__item">About</li>
+          <li class="navbar__menu__item">Skills</li>
+          <li class="navbar__menu__item">My work</li>
+          <li class="navbar__menu__item">Testimonials</li>
+          <li class="navbar__menu__item">Contact</li>
+        </ul>
+      </div>
     </nav>
     <!-- Home -->
     <section id="home">
-        <img src="imgs/seoul_forest _resized.jpeg" alt="Gyutae's profile photo" class="home__avatar">
-        <h1 class="home__title">Hello, <br/> I'm Gyutae PARK </h1>
-        <h2 class="home__description">A Junior Front-end developer</h2>
-        <button class="home__contact">Contact Me</button>
+      <img
+        src="imgs/seoul_forest _resized.jpeg"
+        alt="Gyutae's profile photo"
+        class="home__avatar"
+      />
+      <h1 class="home__title">
+        Hello, <br />
+        I'm Gyutae PARK
+      </h1>
+      <h2 class="home__description">A Junior Front-end developer</h2>
+      <button class="home__contact">Contact Me</button>
     </section>
     <!-- About -->
     <section id="about">
-        <h1>About me</h1>
-        <div class="about__description">
-            <ul class="description__list">
-                <li>안녕하세요, 신입 프론트엔드 개발자 박규태입니다.</li>
-                <li><span>제조기업 IT팀에서 약 2년간 시스템 관리직으로 근무했었으나, 웹개발자로써 커리어개발을 하고싶어 새로운 도전중입니다.</span></li>
-                <li><span>짧은기간이지만 1일1커밋 활동을 하고있고, 기술 블로그를 운영중입니다.</span></li>
-                <li><span>빠른학습과 함께 자라기에 관심이 많습니다. </span></li>
-            </ul>
+      <h1>About me</h1>
+      <div class="about__description">
+        <ul class="description__list">
+          <li>안녕하세요, 신입 프론트엔드 개발자 박규태입니다.</li>
+          <li>
+            <span
+              >제조기업 IT팀에서 약 2년간 시스템 관리직으로 근무했었으나,
+              웹개발자로써 커리어개발을 하고싶어 새로운 도전중입니다.</span
+            >
+          </li>
+          <li>
+            <span
+              >짧은기간이지만 1일1커밋 활동을 하고있고, 기술 블로그를
+              운영중입니다.</span
+            >
+          </li>
+          <li><span>빠른학습과 함께 자라기에 관심이 많습니다. </span></li>
+        </ul>
+      </div>
+      <div class="about__jobs">
+        <div class="job">
+          <img
+            src="imgs/jobs/PHC_Valeo.png"
+            alt="PHC Valeo"
+            class="job__logo"
+          />
+          <p class="job__name">Worked at PHC_Valeo IT Team</p>
+          <p class="job__period">2019 Jul - 2022 Jan</p>
         </div>
-        <div class="about__jobs">
-            <div class="job">
-                <img src="imgs/jobs/PHC_Valeo.png" alt="PHC Valeo" class="job__logo">
-                <p class="job__name">Worked at PHC_Valeo IT Team</p>
-                <p class="job__period">2019 Jul - 2022 Jan</p>
-            </div>
-            <div class="job"></div>
-        </div>
+        <div class="job"></div>
+      </div>
     </section>
     <!-- Skills -->
     <section id="skills">
-        <h1>Skills</h1>
-        <h2>Skills & Attributes</h2>
-        <p>
-            새로운 기술을 학습하는데에 열정이 있습니다.
-        </p>
-        <div class="skills__majors">
-            <div class="major">
-                <div class="major__icon">
-                    <i class="fa-brands fa-js-square"></i>
-                </div>
-                <div class="major__title">Front-end</div>
-                <div class="major__description">
-                    HTML5, CSS3, JavaScript(ES6), React, TypeScript
-                </div>
-            </div>
-            <div class="major">
-                <div class="major__icon">
-                    <i class="fab fa-node-js"></i>
-                </div>
-                <div class="major__title">Back-end</div>
-                <div class="major__description">
-                    Node.js, 추가예정...
-                </div>
-            </div>
-            <div class="major">
-                <div class="major__icon">
-                    <i class="fab fa-github-square"></i>
-                </div>
-                <div class="major__title">Collaboration</div>
-                <div class="major__description">
-                    Github, Notion, Slack
-                </div>
-            </div>
+      <h1>Skills</h1>
+      <h2>Skills & Attributes</h2>
+      <p>새로운 기술을 학습하는데에 열정이 있습니다.</p>
+      <div class="skills__majors">
+        <div class="major">
+          <div class="major__icon">
+            <i class="fa-brands fa-js-square"></i>
+          </div>
+          <div class="major__title">Front-end</div>
+          <div class="major__description">
+            HTML5, CSS3, JavaScript(ES6), React, TypeScript
+          </div>
         </div>
-        <div class="skillset">
-            <div class="skillset__left">
-                <h3 class="skillset__title">Skills</h3>
-                <div class="skill">
-                    <div class="skill__description">
-                        <span>HTML</span>
-                        <span>60%</span>
-                    </div>
-                    <div class="skill__bar">
-                        <div class="skill__value"></div>
-                    </div>
-                    <div class="skill__description">
-                        <span>CSS</span>
-                        <span>60%</span>
-                    </div>
-                    <div class="skill__bar">
-                        <div class="skill__value"></div>
-                    </div>
-                    <div class="skill__description">
-                        <span>JavaScript</span>
-                        <span>30%</span>
-                    </div>
-                    <div class="skill__bar">
-                        <div class="skill__value"></div>
-                    </div>
-                    <div class="skill__description">
-                        <span>React</span>
-                        <span>0%</span>
-                    </div>
-                    <div class="skill__bar">
-                        <div class="skill__value"></div>
-                    </div>
-                    <div class="skill__description">
-                        <span>TypeScript</span>
-                        <span>0%</span>
-                    </div>
-                    <div class="skill__bar">
-                        <div class="skill__value"></div>
-                    </div>
-                    <div class="skill__description">
-                        <span>Node.js</span>
-                        <span>0%</span>
-                    </div>
-                    <div class="skill__bar">
-                        <div class="skill__value"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="skillset__right">
-                <div class="tools">
-                    <h3 class="skillset__title">Tools</h3>
-                    <ul class="tools__list">
-                        <li><span>Visual Studio Code</span></li>
-                        <li><span>추가예정...</span></li>
-                    </ul>
-                </div>
-            </div>
+        <div class="major">
+          <div class="major__icon">
+            <i class="fab fa-node-js"></i>
+          </div>
+          <div class="major__title">Back-end</div>
+          <div class="major__description">Node.js, 추가예정...</div>
         </div>
+        <div class="major">
+          <div class="major__icon">
+            <i class="fab fa-github-square"></i>
+          </div>
+          <div class="major__title">Collaboration</div>
+          <div class="major__description">Github, Notion, Slack</div>
+        </div>
+      </div>
+      <div class="skillset">
+        <div class="skillset__left">
+          <h3 class="skillset__title">Skills</h3>
+          <div class="skill">
+            <div class="skill__description">
+              <span>HTML</span>
+              <span>60%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__value"></div>
+            </div>
+            <div class="skill__description">
+              <span>CSS</span>
+              <span>60%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__value"></div>
+            </div>
+            <div class="skill__description">
+              <span>JavaScript</span>
+              <span>30%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__value"></div>
+            </div>
+            <div class="skill__description">
+              <span>React</span>
+              <span>0%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__value"></div>
+            </div>
+            <div class="skill__description">
+              <span>TypeScript</span>
+              <span>0%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__value"></div>
+            </div>
+            <div class="skill__description">
+              <span>Node.js</span>
+              <span>0%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__value"></div>
+            </div>
+          </div>
+        </div>
+        <div class="skillset__right">
+          <div class="tools">
+            <h3 class="skillset__title">Tools</h3>
+            <ul class="tools__list">
+              <li><span>Visual Studio Code</span></li>
+              <li><span>추가예정...</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
     <!-- Work -->
     <section id="work">
+      <h1>My work</h1>
+      <h3>Projects</h3>
+      <div class="work__categories">
+        <button class="category__btn">
+          All<span class="category_count">5</span>
+        </button>
+        <button class="category__btn">
+          Front-end<span class="category_count">4</span>
+        </button>
+        <button class="category__btn">
+          Back-end<span class="category_count">1</span>
+        </button>
+      </div>
 
+      <div class="work__projects">
+        <a href="https://github.com/GGOOLTAE" class="project" target="blank">
+          <img
+            class="project__img"
+            src="imgs/projects/project1.png"
+            alt="project1"
+          />
+          <div class="project__description">
+            <h3>Youtube Site</h3>
+            <span>Clone coding with HTML and CSS</span>
+          </div>
+        </a>
+        <a href="https://github.com/GGOOLTAE" class="project" target="blank">
+          <img
+            class="project__img"
+            src="imgs/projects/project2.png"
+            alt="project2"
+          />
+          <div class="project__description">
+            <h3>Project2 Site</h3>
+            <span>이미지에 마우스를 올리면 표시되는 Comment</span>
+          </div>
+        </a>
+        <a href="https://github.com/GGOOLTAE" class="project" target="blank">
+          <img
+            class="project__img"
+            src="imgs/projects/project3.png"
+            alt="project3"
+          />
+          <div class="project__description">
+            <h3>Project3 Site</h3>
+            <span>이미지에 마우스를 올리면 표시되는 Comment</span>
+          </div>
+        </a>
+        <a href="https://github.com/GGOOLTAE" class="project" target="blank">
+          <img
+            class="project__img"
+            src="imgs/projects/project4.png"
+            alt="project4"
+          />
+          <div class="project__description">
+            <h3>Project4 Site</h3>
+            <span>이미지에 마우스를 올리면 표시되는 Comment</span>
+          </div>
+        </a>
+        <a href="https://github.com/GGOOLTAE" class="project" target="blank">
+          <img
+            class="project__img"
+            src="imgs/projects/project5.png"
+            alt="project5"
+          />
+          <div class="project__description">
+            <h3>Project5 Site</h3>
+            <span>이미지에 마우스를 올리면 표시되는 Comment</span>
+          </div>
+        </a>
+      </div>
     </section>
     <!-- Testimonials -->
-    <section id="testimnoials">
-
-    </section>
+    <section id="testimnoials"></section>
     <!-- Contact -->
-    <section id="contact">
-
-    </section>
-</body>
+    <section id="contact"></section>
+  </body>
 </html>
