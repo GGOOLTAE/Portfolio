@@ -382,3 +382,46 @@ p {
   height: 2px;
   background-color: var(--color-dark-white);
 }
+
+/* Testimonials */
+#testimnoials {
+  background-color: var(--color-light-white);
+}
+
+.testimonials {
+  margin: 40px;
+}
+
+.testimonial {
+  display: flex;
+  margin: 32px 0;
+}
+
+.testimonial__avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.testimonial__avatar:nth-child(odd) {
+  /*총 n개의 testimonial__avatar중 홀 수 번째에만 속성적용. 즉, n개의 이미지 중, 홀수번째 이미지에만 오른쪽 margin을 준다.*/
+  margin-right: 40px;
+}
+
+.testimonial__avatar:nth-child(even) {
+  margin-left: 40px;
+}
+
+.testimonial__speech-bubble {
+  padding: 18px;
+  background-color: var(--color-white);
+  border-radius: var(--size-border-radius);
+}
+
+.testimonial__speech-bubble p {
+  color: var(--color-light-grey);
+}
+
+.testimonial__speech-bubble a {
+  color: var(--color-milk-blue);
+}
