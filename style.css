@@ -13,6 +13,8 @@
   --color-yellow: #fff7d1;
   --color-orange: #feb546;
   --color-black: #000000;
+  --color-milk-blue: #89b6fa;
+  --color-dark-blue: #478ffa;
 
   /* Font size  */
   --font-large: 48px;
@@ -25,12 +27,31 @@
   --weight-bold: 700;
   --weight-semi-bold: 600;
   --weight-regular: 400;
+
+  /* Size  */
+  --size-border-radius: 4px;
 }
-/* Size  */
 
 /* Universal tags  */
 * {
   box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  font-family: "Nanum Gothic Coding", monospace;
+  font-family: "Noto Sans KR", sans-serif;
+  cursor: default;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+ul {
+  list-style: none;
+  padding-left: 0px;
 }
 /* Typography */
 h1 {
@@ -58,4 +79,36 @@ p {
   font-weight: var(--font-regular);
   color: var(--color-black);
   margin: 4px 0;
+}
+
+/* Navbar */
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  background: var(--color-milk-blue);
+  align-items: center;
+  color: var(--color-white);
+  padding: 16px;
+}
+.navbar__menu {
+  display: flex;
+}
+
+.navbar__logo {
+  font-size: var(--font-medium);
+  font-weight: var(--weight-semi-bold);
+}
+.navbar__menu__item {
+  padding: 8px 5px;
+  margin: 0 4px;
+  cursor: pointer;
+  border-radius: var(--size-border-radius);
+}
+
+.navbar__menu__item.active {
+  border: 1px solid var(--color-white);
+}
+
+.navbar__menu__item:hover {
+  background-color: var(--color-dark-blue);
 }
