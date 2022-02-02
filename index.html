@@ -60,7 +60,7 @@
       <button class="home__contact">Contact Me</button>
     </section>
     <!-- About -->
-    <section id="about" class="section">
+    <section id="about" class="section section__container">
       <h1>About me</h1>
       <div class="about__description">
         <ul class="description__list">
@@ -96,89 +96,101 @@
     </section>
     <!-- Skills -->
     <section id="skills" class="section">
-      <h1>Skills</h1>
-      <h2>Skills & Attributes</h2>
-      <p>새로운 기술을 학습하는데 열정이 있습니다.</p>
-      <div class="skills__majors">
-        <div class="major">
-          <div class="major__icon">
-            <i class="fa-brands fa-js-square"></i>
+      <div class="section__container">
+        <h1>Skills</h1>
+        <h2>Skills & Attributes</h2>
+        <p>새로운 기술을 학습하는데 열정이 있습니다.</p>
+        <div class="skills__majors">
+          <div class="major">
+            <div class="major__icon">
+              <i class="fa-brands fa-js-square"></i>
+            </div>
+            <h2 class="major__title">Front-end</h2>
+            <div class="major__description">
+              HTML5, CSS3, JavaScript(ES6), React, TypeScript
+            </div>
           </div>
-          <h2 class="major__title">Front-end</h2>
-          <div class="major__description">
-            HTML5, CSS3, JavaScript(ES6), React, TypeScript
+          <div class="major">
+            <div class="major__icon">
+              <i class="fab fa-node-js"></i>
+            </div>
+            <h2 class="major__title">Back-end</h2>
+            <div class="major__description">Node.js, 추가예정...</div>
           </div>
-        </div>
-        <div class="major">
-          <div class="major__icon">
-            <i class="fab fa-node-js"></i>
-          </div>
-          <h2 class="major__title">Back-end</h2>
-          <div class="major__description">Node.js, 추가예정...</div>
-        </div>
-        <div class="major">
-          <div class="major__icon">
-            <i class="fab fa-github-square"></i>
-          </div>
-          <h2 class="major__title">Collaboration</h2>
-          <div class="major__description">Github, Notion, Slack</div>
-        </div>
-      </div>
-      <div class="skillset">
-        <div class="skillset__left">
-          <h3 class="skillset__title">Skills</h3>
-          <div class="skill">
-            <div class="skill__description">
-              <span>HTML</span>
-              <span>60%</span>
+          <div class="major">
+            <div class="major__icon">
+              <i class="fab fa-github-square"></i>
             </div>
-            <div class="skill__bar">
-              <div class="skill__value"></div>
-            </div>
-            <div class="skill__description">
-              <span>CSS</span>
-              <span>60%</span>
-            </div>
-            <div class="skill__bar">
-              <div class="skill__value"></div>
-            </div>
-            <div class="skill__description">
-              <span>JavaScript</span>
-              <span>30%</span>
-            </div>
-            <div class="skill__bar">
-              <div class="skill__value"></div>
-            </div>
-            <div class="skill__description">
-              <span>React</span>
-              <span>0%</span>
-            </div>
-            <div class="skill__bar">
-              <div class="skill__value"></div>
-            </div>
-            <div class="skill__description">
-              <span>TypeScript</span>
-              <span>0%</span>
-            </div>
-            <div class="skill__bar">
-              <div class="skill__value"></div>
-            </div>
-            <div class="skill__description">
-              <span>Node.js</span>
-              <span>0%</span>
-            </div>
-            <div class="skill__bar">
-              <div class="skill__value"></div>
-            </div>
+            <h2 class="major__title">Collaboration</h2>
+            <div class="major__description">Github, Notion, Slack</div>
           </div>
         </div>
-        <div class="skillset__right">
-          <div class="tools">
-            <h3 class="skillset__title">Tools</h3>
-            <ul class="tools__list">
-              <li><span>Visual Studio Code</span></li>
-              <li><span>추가예정...</span></li>
-            </ul>
+        <div class="skillset">
+          <div class="skillset__left">
+            <h3 class="skillset__title">Skills</h3>
+            <div class="skill">
+              <div class="skill__description">
+                <span>HTML</span>
+                <span>60%</span>
+              </div>
+              <div class="skill__bar">
+                <div class="skill__value" style="width: 60%"></div>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="skill__description">
+                <span>CSS</span>
+                <span>60%</span>
+              </div>
+              <div class="skill__bar">
+                <div class="skill__value" style="width: 60%"></div>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="skill__description">
+                <span>JavaScript</span>
+                <span>30%</span>
+              </div>
+              <div class="skill__bar">
+                <div class="skill__value" style="width: 30%"></div>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="skill__description">
+                <span>React</span>
+                <span>0%</span>
+              </div>
+              <div class="skill__bar">
+                <div class="skill__value" style="width: 0%"></div>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="skill__description">
+                <span>TypeScript</span>
+                <span>0%</span>
+              </div>
+              <div class="skill__bar">
+                <div class="skill__value" style="width: 0%"></div>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="skill__description">
+                <span>Node.js</span>
+                <span>0%</span>
+              </div>
+              <div class="skill__bar">
+                <div class="skill__value" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="skillset__right">
+            <div class="tools">
+              <h3 class="skillset__title">Tools</h3>
+              <ul class="tools__list">
+                <li><span>Visual Studio Code</span></li>
+                <li><span>추가예정...</span></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
