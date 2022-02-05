@@ -102,10 +102,12 @@ p {
   color: var(--color-white);
   padding: 16px;
   transition: all var(--anmation-duration) ease-in-out;
+  z-index: 1;
 }
 
 #navbar.navbar--dark {
   background: var(--color-milk-blue);
+
   padding: 8px;
 }
 
@@ -128,8 +130,12 @@ p {
   border: 1px solid var(--color-white);
 }
 
-.navbar__menu__item:hover {
+.navbar__menu__item.navbar__menu__item--milk:hover {
   background-color: var(--color-dark-blue);
+}
+
+.navbar__menu__item:hover {
+  background-color: var(--color-milk-blue);
 }
 
 .navbar__toggle-btn {
