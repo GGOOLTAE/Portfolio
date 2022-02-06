@@ -111,6 +111,10 @@ p {
   padding: 8px;
 }
 
+.navbar__logo__name {
+  display: inline;
+}
+
 .navbar__menu {
   display: flex;
 }

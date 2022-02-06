@@ -19,13 +19,32 @@ document.addEventListener('scroll', () => {
     }
 });
 
+
 //Navbar__menu 클릭시 scrolling기능 추가
 const navbarMenu = document.querySelector(".navbar__menu");
 navbarMenu.addEventListener('click', (event) => {
     const link = event.target.dataset.link; //html 태그에 data-link 속성을 추가하고, 이동해야할 태그의 id을 부여했다.
     if (link != null) {
-        const scrollTo = document.querySelector(link);
-        scrollTo.scrollIntoView({ behavior: 'smooth' });
+        scrollIntoView(link);
     }
 })
 
+//Contact Me 클릭시 contact로 scrolling 기능 추가
+const homeContactBtn = document.querySelector('.home__contact')
+homeContactBtn.addEventListener('click', (event) => {
+    scrollIntoView('#contact');
+})
+
+//Navbar__logo 클릭시 home으로 scrolling 기능
+const navbarLogo = document.querySelector('.navbar__logo');
+navbarLogo.addEventListener('click', (event) => {
+    scrollIntoView('#home');
+})
+
+
+//scroll기능을 중복으로 사용하기 때문에, 함수를 통해 중복코드 방지 처리
+//scrollIntoView라는 함수명이 중복되었지만, DOM요소에 정의한 함수와는 별개이기 때문에, 무한루프이슈는 발생하지 않는다.
+function scrollIntoView(selector) { //직접 정의한 함수
+    const scrollTo = document.querySelector(selector);
+    scrollTo.scrollIntoView({ behavior: 'smooth' }); //DOM요소에 정의한 함수
+}
