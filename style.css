@@ -42,7 +42,6 @@
 
 body {
   margin: 0px;
-  font-family: "Nanum Gothic Coding", monospace;
   font-family: "Noto Sans KR", sans-serif;
   cursor: default;
 }
@@ -107,7 +106,6 @@ p {
 
 #navbar.navbar--dark {
   background: var(--color-milk-blue);
-
   padding: 8px;
 }
 
