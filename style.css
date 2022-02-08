@@ -410,7 +410,7 @@ p {
 }
 
 /* Testimonials */
-#testimnoials {
+#testimonials {
   background-color: var(--color-light-white);
 }
 
@@ -487,8 +487,27 @@ p {
   transition: all var(--anmation-duration);
 }
 
-/* For below 768px screen width */
+/* Arrow up */
+.arrowUp {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  width: 70px;
+  height: 70px;
+  font-size: 50px;
+  color: var(--color-white);
+  background-color: var(--color-pink);
+  border-radius: 50%;
+  opacity: 0; /* display:none 대신 opacity를 사용한 이유는, display:none은 애니메이션 효과(transition:ease-in)이 적용되지 않기때문이다. */
+  pointer-events: none; /* opacity를 통해 투명도만 조정하면, 투명한상태여도 클릭이 되는 문제가 있기때문에, pointer-events:none를 사용해서 투명한 상태에서는 클릭을 못하게 만들 수 있다.*/
+  transition: all 300ms ease-in;
+}
 
+.arrowUp.visible {
+  opacity: 1;
+  pointer-events: auto; /*버튼 클릭이 다시 가능해지게 pointer-events의 default값인 auto를 넣는다.*/
+}
+/* For below 768px screen width */
 @media screen and (max-width: 768px) {
   .navbar__toggle-btn {
     display: block;

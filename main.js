@@ -41,6 +41,32 @@ navbarLogo.addEventListener('click', (event) => {
     scrollIntoView('#home');
 })
 
+//Scroll을 아래로 내렸을때 Home 컨텐츠를 투명화(css opacity:1->0)하기
+const homeContainer = document.querySelector('.home__container');
+const homeContainerHeight = homeContainer.getBoundingClientRect().height;
+document.addEventListener('scroll', () => {
+    homeContainer.style.opacity = 1 - window.scrollY / homeContainerHeight;
+})
+
+//Scroll을 아래로 내릴때 arrowUP 버튼을 불투명화(css opacity:0->1)하기
+const home = document.querySelector('#home');
+const homeHeight = home.getBoundingClientRect().height;
+const arrowUp = document.querySelector('.arrowUp');
+document.addEventListener('scroll', () => {
+    if (window.scrollY > homeHeight / 2) {
+        arrowUp.classList.add('visible');
+        console.log('if')
+    } else {
+        arrowUp.classList.remove('visible');
+        console.log('else')
+    }
+})
+
+//arrowUp 클릭시 home으로 scrolling기능
+arrowUp.addEventListener('click', () => {
+    scrollIntoView('#home');
+})
+
 
 
 //scroll기능을 중복으로 사용하기 때문에, 함수를 통해 중복코드 방지 처리, 아래에 정의해놔도 hoisting된다.
@@ -49,12 +75,3 @@ function scrollIntoView(selector) { //직접 정의한 함수
     const scrollTo = document.querySelector(selector);
     scrollTo.scrollIntoView({ behavior: 'smooth' }); //DOM요소에 정의한 함수
 }
-
-
-//Scroll을 아래로 내렸을때 Home 컨텐츠를 투명화(css opacity:1->0)하기
-const homeContainer = document.querySelector('.home__container');
-const homeDOMRect = homeContainer.getBoundingClientRect().height;
-document.addEventListener('scroll', () => {
-    homeContainer.style.opacity = 1 - window.scrollY / homeDOMRect;
-})
-
