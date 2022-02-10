@@ -55,10 +55,8 @@ const arrowUp = document.querySelector('.arrowUp');
 document.addEventListener('scroll', () => {
     if (window.scrollY > homeHeight / 2) {
         arrowUp.classList.add('visible');
-        console.log('if')
     } else {
         arrowUp.classList.remove('visible');
-        console.log('else')
     }
 })
 
@@ -66,6 +64,31 @@ document.addEventListener('scroll', () => {
 arrowUp.addEventListener('click', () => {
     scrollIntoView('#home');
 })
+
+//Project 카테고리 클릭시, button의 data-filter값에 따라 프로젝트 data-type 필터링되게 하기
+const workBtnContainer = document.querySelector('.work__categories');
+const projectContainer = document.querySelector('.work__projects');
+const projects = document.querySelectorAll('.project');
+workBtnContainer.addEventListener('click', (event) => {
+    const filter = event.target.dataset.filter || event.target.parentNode.dataset.filter // button내의 숫자인 span태그를 눌렀을경우, undefined가 뜨기 때문에, 부모노드인 버튼의 dataset-filter을 가져오려고 or을 사용함.
+    if (filter == null) {
+        return;
+    }
+
+    projectContainer.classList.add('animation-out');
+
+    setTimeout(() => {
+        projects.forEach((project) => {
+            if (filter === '*' || filter === project.dataset.type) {
+                project.classList.remove('invisible');
+            } else {
+                project.classList.add('invisible');
+            }
+        });
+        projectContainer.classList.remove('animation-out');
+    }, 300);
+
+});
 
 
 
