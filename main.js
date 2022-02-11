@@ -75,9 +75,18 @@ workBtnContainer.addEventListener('click', (event) => {
         return;
     }
 
+    //기존 선택된 category버튼에서 selected 클래스 제거
+    const selected = document.querySelector('.category__btn.selected');
+    console.log(event.target.nodeName)
+    const target = (event.target.nodeName === 'BUTTON' ? event.target : event.target.parentNode);
+    selected.classList.remove('selected');
+    target.classList.add('selected');
+
     projectContainer.classList.add('animation-out');
 
-    setTimeout(() => {
+    //setTimeout을 쓴이유는 2가지이다. (1) projectContainer.classList의 추가삭제시, opacity:1->0, 0->1 로 전환되는 사이에 시간을 주기위해.
+    //                            (2) orkBtnContainer 클릭후, projectContainer이 투명화되기 전에, project의 투명도 설정이되는것을 방지하기위해.
+    setTimeout(() => { // 
         projects.forEach((project) => {
             if (filter === '*' || filter === project.dataset.type) {
                 project.classList.remove('invisible');
@@ -92,7 +101,7 @@ workBtnContainer.addEventListener('click', (event) => {
 
 
 
-//scroll기능을 중복으로 사용하기 때문에, 함수를 통해 중복코드 방지 처리, 아래에 정의해놔도 hoisting된다.
+//scroll기능을 중복으로 사용하기 때문에, 함수를 통해 중복코드 방지 처리, 아래에 정의해놔도 함수선언식이므로, hoisting된다.
 //scrollIntoView라는 함수명이 중복되었지만, DOM요소에 정의되어있는 함수와는 별개이기 때문에, 무한루프이슈는 발생하지 않는다.
 function scrollIntoView(selector) { //직접 정의한 함수
     const scrollTo = document.querySelector(selector);
