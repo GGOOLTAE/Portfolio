@@ -19,7 +19,6 @@ document.addEventListener('scroll', () => {
     }
 });
 
-
 //Navbar__menu 클릭시 scrolling기능 추가
 const navbarMenu = document.querySelector(".navbar__menu");
 navbarMenu.addEventListener('click', (event) => {
@@ -27,6 +26,13 @@ navbarMenu.addEventListener('click', (event) => {
     if (link != null) {
         scrollIntoView(link);
     }
+    navbarMenu.classList.remove('opened');
+})
+
+//navbar의 토글버튼(작은화면용) 클릭시 메뉴 나타나게 하기
+const navbarToggleButton = document.querySelector('.navbar__toggle-btn');
+navbarToggleButton.addEventListener('click', (e) => {
+    navbarMenu.classList.toggle('opened');
 })
 
 //Contact Me 클릭시 contact로 scrolling 기능 추가
@@ -65,6 +71,7 @@ arrowUp.addEventListener('click', () => {
     scrollIntoView('#home');
 })
 
+
 //Project 카테고리 클릭시, button의 data-filter값에 따라 프로젝트 data-type 필터링되게 하기
 const workBtnContainer = document.querySelector('.work__categories');
 const projectContainer = document.querySelector('.work__projects');
@@ -98,6 +105,7 @@ workBtnContainer.addEventListener('click', (event) => {
     }, 300);
 
 });
+
 
 
 
