@@ -84,7 +84,6 @@ workBtnContainer.addEventListener('click', (event) => {
 
     //기존 선택된 category버튼에서 selected 클래스 제거
     const selected = document.querySelector('.category__btn.selected');
-    console.log(event.target.nodeName)
     const target = (event.target.nodeName === 'BUTTON' ? event.target : event.target.parentNode);
     selected.classList.remove('selected');
     target.classList.add('selected');
