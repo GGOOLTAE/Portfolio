@@ -114,3 +114,43 @@ function scrollIntoView(selector) { //직접 정의한 함수
     const scrollTo = document.querySelector(selector);
     scrollTo.scrollIntoView({ behavior: 'smooth' }); //DOM요소에 정의한 함수
 }
+
+
+//[x] 1. 모든 섹션 요소들과 navBar메뉴아이템 들을 가지고 온다.
+//[] 2. IntersectionObserver을 이용해서 모든 섹션을 관찰한다.
+//[] 3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화시킨다.
+const sectionIds = ['#home', '#about', '#skills', '#work', '#testimonials', '#contact'];
+
+const sections = sectionIds.map(id => document.querySelector(id));
+
+const navItems = sectionIds.map(id => document.querySelector(`[data-link="${id}"]`));
+
+let selectedNavIndex = 0;
+let selectedNavItem = navItems[0];
+function selectNavItem(selected) {
+    selectedNavItem.classList.remove('active');
+    selectedNavItem = selected;
+    selectedNavItem.classList.add('active');
+}
+
+
+const observerOption = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.3
+}
+
+const observerCallback = (entries, observer) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting && entry.intersectionRatio > 0) { //요소가 화면 밖으로 나가는중일때,
+            const index = sectionIds.indexOf(`#${entry.target.id}`);
+            if (entry.boundingClientRect.y < 0) { //아래로 스크롤링되어서 페이지가 올라옴
+                selectedNavIndex = index + 1;
+            } else {//위로 스크롤링되어서 페이지가 내려감
+                selectedNavIndex = index - 1;
+            }
+        }
+    })
+}
+const observer = new IntersectionObserver(observerCallback, observerOption);
+sections.forEach(section => observer.observe(section));
