@@ -27,6 +27,7 @@ navbarMenu.addEventListener('click', (event) => {
         scrollIntoView(link);
     }
     navbarMenu.classList.remove('opened');
+    selectNavItem(event.target); // Navbar__menu 클릭시, 기존element의 active 클래스 제거 및 신규element의 active 클래스 추가
 })
 
 //navbar의 토글버튼(작은화면용) 클릭시 메뉴 나타나게 하기
@@ -108,17 +109,12 @@ workBtnContainer.addEventListener('click', (event) => {
 
 
 
-//scroll기능을 중복으로 사용하기 때문에, 함수를 통해 중복코드 방지 처리, 아래에 정의해놔도 함수선언식이므로, hoisting된다.
-//scrollIntoView라는 함수명이 중복되었지만, DOM요소에 정의되어있는 함수와는 별개이기 때문에, 무한루프이슈는 발생하지 않는다.
-function scrollIntoView(selector) { //직접 정의한 함수
-    const scrollTo = document.querySelector(selector);
-    scrollTo.scrollIntoView({ behavior: 'smooth' }); //DOM요소에 정의한 함수
-}
+
 
 
 //[x] 1. 모든 섹션 요소들과 navBar메뉴아이템 들을 가지고 온다.
-//[] 2. IntersectionObserver을 이용해서 모든 섹션을 관찰한다.
-//[] 3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화시킨다.
+//[x] 2. IntersectionObserver을 이용해서 모든 섹션을 관찰한다.
+//[x] 3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화시킨다.
 const sectionIds = ['#home', '#about', '#skills', '#work', '#testimonials', '#contact'];
 
 const sections = sectionIds.map(id => document.querySelector(id));
@@ -126,31 +122,56 @@ const sections = sectionIds.map(id => document.querySelector(id));
 const navItems = sectionIds.map(id => document.querySelector(`[data-link="${id}"]`));
 
 let selectedNavIndex = 0;
+
 let selectedNavItem = navItems[0];
+
 function selectNavItem(selected) {
     selectedNavItem.classList.remove('active');
     selectedNavItem = selected;
     selectedNavItem.classList.add('active');
 }
 
+//scroll기능을 중복으로 사용하기 때문에, 함수를 통해 중복코드 방지 처리, 아래에 정의해놔도 함수선언식이므로, hoisting된다.
+//scrollIntoView라는 함수명이 중복되었지만, DOM요소에 정의되어있는 함수와는 별개이기 때문에, 무한루프이슈는 발생하지 않는다.
+function scrollIntoView(selector) { //직접 정의한 함수
+    const scrollTo = document.querySelector(selector);
+    scrollTo.scrollIntoView({ behavior: 'smooth' }); //DOM요소에 정의한 scrollIntoView함수
+    selectNavItem(navItems[sectionIds.indexOf(`#${scrollTo.id}`)]);
+}
 
 const observerOption = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.3
+    root: null, //window
+    rootMargin: '0px', //화면크기 그대로
+    threshold: 0.3 // 30%
 }
 
 const observerCallback = (entries, observer) => {
     entries.forEach(entry => {
-        if (!entry.isIntersecting && entry.intersectionRatio > 0) { //요소가 화면 밖으로 나가는중일때,
+        if (!entry.isIntersecting && entry.intersectionRatio > 0) { //요소가 화면 밖에 있거나, 밖으로 나가는중이고 && 화면에 표시된 영역이 0%보다 큰 경우
             const index = sectionIds.indexOf(`#${entry.target.id}`);
-            if (entry.boundingClientRect.y < 0) { //아래로 스크롤링되어서 페이지가 올라옴
+            if (entry.boundingClientRect.y < 0) { //아래로 스크롤링되어서 페이지가 올라오며, 이때 entry는 페이지 위쪽으로 벗어난다(y좌표가 음수)
                 selectedNavIndex = index + 1;
-            } else {//위로 스크롤링되어서 페이지가 내려감
+                //console.log('첫번쨰' + entry.target.id + ' ' + entry.intersectionRatio + ' ' + entry.isIntersecting);
+            } else {//위로 스크롤링되어서 페이지가 내려가며, 이때 entry는 페이지 아래쪽으로 벗어난다(y좌표가 음수가 아님)
                 selectedNavIndex = index - 1;
+                //console.log('두번째' + entry.target.id + ' ' + entry.intersectionRatio + ' ' + entry.isIntersecting);
             }
+            //selectNavItem(navItems[selectedNavIndex]); 
+            //여기서 selectNavItem함수를 실행시키지 않은이유는, 
+            //window.addEventListner('scroll'~~)을 통해, scroll이벤트 발생시  window.scrollY좌표를 구하고 화면의 맨위와 맨밑에 도달할 경우
+            //selectedNavIndex에 Home또는 Contact의 index를  넣고 selectNavItem함수를 실행시키는 로직을 구현하기 위함.
+
         }
     })
 }
 const observer = new IntersectionObserver(observerCallback, observerOption);
 sections.forEach(section => observer.observe(section));
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY === 0) {
+        selectedNavIndex = 0;
+    } else if (Math.ceil(window.scrollY + window.innerHeight) === document.body.clientHeight) {
+        selectedNavIndex = navItems.length - 1;
+    }
+    selectNavItem(navItems[selectedNavIndex]);
+})
